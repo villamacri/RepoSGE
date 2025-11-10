@@ -1,8 +1,9 @@
 diccionario={}
-palabraAgre=""
+palabraLeida=""
 signAgreg=""
 opcion=0
 palabrBuscada=""
+palabrasFavoritas={}
 
 while opcion==0:
     encontrada=False
@@ -17,7 +18,7 @@ while opcion==0:
         case 0:
             print("Saliendo...")
         case 1:
-            diccionario[input("Diga la palabra: ")]=input("Diga significado")
+            diccionario[input("Diga la palabra: ")]=input("Diga significado: ")
 
         case 2:
             for palabra, significado in diccionario.items():
@@ -35,6 +36,19 @@ while opcion==0:
                 diccionario[palabrBuscada]=input("Diga el nuevo significado: ")
             else:
                 print("Error, la palabra no está en el diccionario")
-                
+        case 5:
+            for i in range(0, 2):
+                palabraLeida=input("Diga su palabra favorita: ")
+                signAgreg=input("Diga el significado: ")
+                palabrasFavoritas[palabraLeida]=signAgreg
+            diccionario.update(palabrasFavoritas)
+
+        case 6:
+            palabraLeida=input("Diga la palabra a borrar: ")
+            del diccionario[palabraLeida]
+        case 7:
+            
+
+     
 
         
