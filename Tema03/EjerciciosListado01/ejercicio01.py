@@ -1,17 +1,16 @@
-numPedido=int(input("Diga un número: "))
-numLeido=""
-topeLeido=int(input("Diga cuantos numeros va a introducir: "))
-listadoNumeros=[]
+def contar_mayores(numeros):
+    contador = 0
+    for i in range(1, len(numeros)):
+        if numeros[i] > numeros[i-1]:
+            contador += 1
+    return contador
 
-for i in range(topeLeido):
-    numLeido=int(input("Diga un número: "))
-    listadoNumeros[i]=numLeido
+cuantos = int(input("¿Cuántos números va a introducir? "))
 
-def comprobarMayores(numPedido, listadoNumeros):
-    cont=0
-    for i in listadoNumeros:
-        if(listadoNumeros[i]>numPedido):
-            cont+=1
-    return cont
+numeros = []
+for i in range(cuantos):
+    num = int(input(f"Diga el número {i+1}: "))
+    numeros.append(num)
 
-print(f"Hay {comprobarMayores()} mas grandes que {numPedido}")
+resultado = contar_mayores(numeros)
+print(f"{resultado} números son mayores que el anterior.")
