@@ -1,11 +1,18 @@
-def ordenar_numeros(num1, num2, num3):
-    numeros = [num1, num2, num3]
-    numeros.sort()
-    return numeros
+def ordenar_numeros(tope):
+    numLeido=0
+    numeros=[]
+    numeros_ordenados=[]
+    for i in range(tope):
+        numLeido=int(input("Diga un número: "))
+        numeros.append(numLeido)
 
-num1 = int(input("Escriba el primer número: "))
-num2 = int(input("Escriba el segundo número: "))
-num3 = int(input("Escriba el tercer número: "))
+    numeros_ordenados.append(min(numeros))
+    for i in range(len(numeros)):
+        if numeros[i] != min(numeros) and numeros[i] != max(numeros):
+            numeros_ordenados.append(numeros[i])
+    numeros_ordenados.append(max(numeros))
+    return numeros_ordenados
 
-resultado = ordenar_numeros(num1, num2, num3)
+tope=int(input("Diga cuantos números quiere introducir: "))
+resultado = ordenar_numeros(tope)
 print(f"Los números ordenados son: {resultado}")
