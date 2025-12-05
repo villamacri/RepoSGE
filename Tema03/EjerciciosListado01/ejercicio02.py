@@ -3,7 +3,7 @@ def ordenar_numeros(tope):
     numeros=[]
     numeros_ordenados=[]
     for i in range(tope):
-        numLeido=int(input("Diga un número: "))
+        numLeido=int(input("Diga un número: "))#No se lee dentro de la función, a menos que se digan lo contrario
         numeros.append(numLeido)
 
     numeros_ordenados.append(min(numeros))

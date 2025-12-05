@@ -18,9 +18,9 @@
 
 
 #VERSIÓN DEL TOÑETE(MEJOR)
-numero1 = int(input("Diga un número que sera con el que se compararan"))
+numero1 = int(input("Diga un número que sera con el que se compararán: "))
 
-cantNumeros = int(input("DIga la cantidad de números que vas a meter"))
+cantNumeros = int(input("Diga la cantidad de números que vas a meter: "))
 
 numerosMayores = []
 
