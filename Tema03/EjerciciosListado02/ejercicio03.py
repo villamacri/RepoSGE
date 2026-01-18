@@ -6,10 +6,29 @@ listaInmuebles=[
     {'año': 2015, 'metros': 90, 'habitaciones': 2, 'garaje': False, 'zona': 'A'}
     ]
 
+def calcularPrecio(inmueble):
+    antiguedad=2026-inmueble['año']
+
+    precio=(inmueble['metros']*1000+inmueble['habitaciones']*5000)
+
+    if inmueble['garaje']:
+        precio += 15000
+    
+    precio *= (1-antiguedad/100)
+    if inmueble['zona']=='B':
+        precio*=1.5
+
+    return precio
+
 def buscarInmueblesPorPresupuesto(listaInmuebles, presupuesto):
-    precio=0.0
     listaFiltrada=[]
+
     for inmueble in listaInmuebles:
-        if inmueble["zona"]=='A' and inmueble['garaje'] is True:
-            precio=(inmueble['metros']*1000+inmueble['habitaciones']*5000 + 15000)*(1-(2026-inmueble['año'])/100)
+        precio_final=calcularPrecio(inmueble)
+
+        if precio_final <= presupuesto:
+            inmueble['precio']=precio_final
+            listaFiltrada.append(inmueble)
+    return listaFiltrada
+
     
