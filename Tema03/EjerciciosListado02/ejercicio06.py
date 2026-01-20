@@ -4,7 +4,7 @@ def apostarMartingala(apuestaInicial, saldoInicial, probGanar, objetivo):
     saldo=saldoInicial
     apuestaActual=apuestaInicial
 
-    while saldo > 0 and saldo < objetivo:
+    while 0 < saldo < objetivo:
         if  apuestaActual > saldo:
             apuestaActual=saldo
         suerte = random.randint(1,100)

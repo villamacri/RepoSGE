@@ -1,3 +1,4 @@
+import math
 class Figura:
     def calcularArea(self):
         pass
@@ -45,10 +46,10 @@ class Circulo(Figura):
         self.radio = radio
     
     def calcularArea(self):
-        return 3.14159*(self.radio ** 2)
+        return math.pi*(self.radio ** 2)
     
     def calcularPerimetro(self):
-        return 2 * 3.1416*self.radio
+        return 2 * math.pi*self.radio
     
     def aumentarTamanio(self, tamanio):
         self.radio *= tamanio

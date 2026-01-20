@@ -31,4 +31,11 @@ def buscarInmueblesPorPresupuesto(listaInmuebles, presupuesto):
             listaFiltrada.append(inmueble)
     return listaFiltrada
 
-    
+def pintarListaFiltrada(listaFiltrada):
+    for inmueble in listaFiltrada:
+        print(f"{inmueble}")
+
+presupuesto=100000
+listaFiltrada=buscarInmueblesPorPresupuesto(listaInmuebles, presupuesto)
+print("Estos son los inmuebles según su presupuesto: ")
+pintarListaFiltrada(listaFiltrada)
