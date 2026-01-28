@@ -4,30 +4,30 @@ class yogurNormal:
         self.marca=marca
         self.troci=troci
         
-    def calcularCalorias(cantMl):
+    def calcularCalorias(self, cantMl, cantAdic=0):
         calorias=120.5
         return (cantMl*calorias)/100
     
 class yogurDesnatado(yogurNormal):
-    def calcularCalorias(cantMl):
+    def calcularCalorias(self, cantMl, cantAdic=0):
         porc=30.0
-        return super().calcularCalorias()-((super().calcularCalorias*porc)/100)
+        return super().calcularCalorias(cantMl)-((super().calcularCalorias(cantMl)*porc)/100)
 
 class postreProt(yogurNormal):
-    def calcularCalorias(cantMl, cantAdic):
-        return super().calcularCalorias()+cantAdic
+    def calcularCalorias(self, cantMl, cantAdic=0):
+        return super().calcularCalorias(cantMl)+cantAdic
 
 class contarCalorias:
-    def contarCalorias(yogurPas):
-        return yogurPas.calcularCalorias()
+    def contarCalorias(self, yogurPas, cantMl):
+        return yogurPas.calcularCalorias(cantMl)
     
-    def contarVarios(listadoYogur, cantMl, cantAdic):
+    def contarVarios(self, listadoYogur, cantMl, cantAdic):
         totalCal=0.0
         for yogur in listadoYogur:
             totalCal+=yogur.calcularCalorias(cantMl, cantAdic)
         return totalCal
     
-    def calcularPorTipo(listadoYogur, tipo, cantMl, cantAdic):
+    def calcularPorTipo(self, listadoYogur, tipo, cantMl, cantAdic):
         totalCal=0.0
         for yogur in listadoYogur:
             if isinstance(yogur, tipo):
@@ -47,5 +47,6 @@ yogures=[
     yogur4,
 ]
 
-print(f"El yogur de fresa tiene {yogur1.calcularCalorias()}")
+print(f"El yogur de fresa tiene {opVarias.contarCalorias(yogur1, 200.0)}")
 print(f"Las calorías totales son de {opVarias.contarVarios(yogures, 400.0, 200.0)}")
+print(f"Las calorías de los yogures proteícos son {opVarias.calcularPorTipo(yogures, postreProt, 300.0, 30.0)}")
