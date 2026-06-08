@@ -4,17 +4,17 @@ class yogurNormal:
         self.marca=marca
         self.troci=troci
         
-    def calcularCalorias(self, cantMl, cantAdic=0.0):
+    def calcularCalorias(self, cantMl, cantAdic=0):
         calorias=120.5
         return (cantMl*calorias)/100
     
 class yogurDesnatado(yogurNormal):
-    def calcularCalorias(self, cantMl, cantAdic=0.0):
+    def calcularCalorias(self, cantMl, cantAdic=0):
         porc=30.0
         return super().calcularCalorias(cantMl)-((super().calcularCalorias(cantMl)*porc)/100)
 
 class postreProt(yogurNormal):
-    def calcularCalorias(self, cantMl, cantAdic):
+    def calcularCalorias(self, cantMl, cantAdic=0):
         return super().calcularCalorias(cantMl)+cantAdic
 
 class contarCalorias:
@@ -47,5 +47,6 @@ yogures=[
     yogur4,
 ]
 
-print(f"El yogur de fresa tiene {opVarias.contarCalorias(yogur1, 300.0)}")
+print(f"El yogur de fresa tiene {opVarias.contarCalorias(yogur1, 200.0)}")
 print(f"Las calorías totales son de {opVarias.contarVarios(yogures, 400.0, 200.0)}")
+print(f"Las calorías de los yogures proteícos son {opVarias.calcularPorTipo(yogures, postreProt, 300.0, 30.0)}")
